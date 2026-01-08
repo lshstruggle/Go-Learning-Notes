@@ -1,0 +1,12 @@
+
+services:
+    mysql:
+        image: mysql:8.0 # 使用8.0版本的MySQL镜像
+        container_name: my-mysql # 容器名称
+        environment:
+            MYSQL_ROOT_PASSWORD: 123456 # 设置root用户密码
+        ports:
+            - "3307:3306" # 映射主机的3307端口到容器的3306端口
+        volumes:
+            - ~/mysql/data:/var/lib/mysql # 将宿主机的/data/mysql目录挂载到容器的/var/lib/mysql目录，持久化数据
+        restart: always # 容器异常退出时自动重启
